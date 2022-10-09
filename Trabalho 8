@@ -1,0 +1,28 @@
+# Loraine F. Mendes
+
+# 1. Usando  os  conceitos  de  programação  funcional  e  considerando  o  universo  dos  números inteiros,  implemente  a  função  foldr  em  Python,  C  ou  C++  20  tomando  como  base  o funcionamento  desta  função  em  Haskell.  Sem,  é  claro,  usar  qualquer  função,  objeto,  ou biblioteca disponíveis na linguagem que você escolher. 
+def foldr(f, l, i):
+  if len(l) == 0:
+    return i
+  else:
+    return foldr(f, l[1:], f(l[0], i))
+print('exercicio 1:',foldr(int.__sub__, [1,2,3,4], 0))
+
+#2. Usando  os  conceitos  de  programação  funcional  e  considerando  o  universo  dos  números inteiros, implemente a função abs em Python, C ou C++ 20 que devolva o valor absoluto de um número dado. Sem, é claro, usar qualquer função, objeto, ou biblioteca disponíveis na linguagem que você escolher. 
+
+valor = -4
+novoValor = valor * -1
+print('exercicio 2:',novoValor)
+
+#3. Usando  os  conceitos  de  programação  funcional  e  considerando  o  universo  dos  números reais, implemente a função media em Python, C ou C++ 20 que devolva a média aritmética entre  dois  números  dados.  Sem,  é  claro,  usar  qualquer  função,  objeto,  ou  biblioteca disponíveis na linguagem que você escolher.
+lista = [10,15]
+print('exercicio 3:',[(x + y) / 2.0 for (x, y) in zip(lista[:-1], lista[1:])])
+
+#4. Usando os conceitos de programação funcional e a linguagem Python, C ou C++ 20 escreva  uma  função  que  devolva  a  lista  de  todos  os  números  de  Fibonacci  até  um  valor  #dado considerando que a  sequência de Fibonacci começa em zero. Sem, é  claro, usar qualquer função, objeto, ou biblioteca disponíveis na linguagem que você escolher.
+fibSeq = lambda arr, lim : arr if arr[-1] + arr[-2] > lim else fibSeq(arr+[arr[-1]+arr[-2]],lim)
+fib = lambda x : [] if x < 1 else fibSeq([1,1],x)
+print('exercicio 4:',fib(55))
+
+#5. Você tem uma lista de tuplas onde o primeiro campo é o nome de um aluno e o segundo sua nota. Crie uma função, usando o Python, C ou C++ 20 e os conceitos de programação funcional para  criar uma  função que  ordene  listas  de  tuplas,  como  a  tupla  descrita neste enunciado.  Sem,  é  claro,  usar  qualquer  função,  objeto,  ou  biblioteca disponíveis  na linguagem que você escolher. 
+tupla = [('Rá', '13.99'), ('Anubis', '12.03'), ('Asar', '13.54')]
+print('exercicio 5:',sorted(tupla, key = lambda x: float(x[1]), reverse = True))
